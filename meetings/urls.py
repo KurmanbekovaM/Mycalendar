@@ -12,8 +12,9 @@ router.register(r'availabilities', AvailabilityViewSet)
 
 urlpatterns = [
     path('api/', include(router.urls)),
+
 ]
-from django.urls import path
+
 from .views_auth import RegisterUser, LoginUser
 
 urlpatterns = [
@@ -22,16 +23,7 @@ urlpatterns = [
 ]
 from rest_framework.permissions import IsAuthenticated
 
-router = DefaultRouter()
-router.register(r'events', EventViewSet, basename="event")
-router.register(r'availabilities', AvailabilityViewSet, basename="availability")
-
-urlpatterns = [
-    path('api/', include(router.urls)),
-]
-
-# В представлениях EventViewSet и AvailabilityViewSet можно добавить permission_classes:
 class EventViewSet(viewsets.ModelViewSet):
     queryset = Event.objects.all()
     serializer_class = EventSerializer
-    permission_classes = [IsAuthenticated]  # Защищаем маршруты
+    permission_classes = [IsAuthenticated]
