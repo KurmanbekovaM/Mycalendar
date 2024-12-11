@@ -3,7 +3,7 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework.permissions import AllowAny
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User # type: ignore
 
 
 class RegisterUser(APIView):
@@ -30,7 +30,7 @@ class LoginUser(APIView):
     permission_classes = [AllowAny]
 
     def post(self, request):
-        from django.contrib.auth import authenticate
+        from django.contrib.auth import authenticate # type: ignore
 
         username = request.data.get("username")
         password = request.data.get("password")

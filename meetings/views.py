@@ -1,5 +1,5 @@
-from django.shortcuts import render
-from rest_framework import viewsets
+from django.shortcuts import render # type: ignore
+from rest_framework import viewsets # type: ignore
 from .models import Event, Availability
 from .serializers import EventSerializer, AvailabilitySerializer
 
