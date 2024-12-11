@@ -1,1 +1,6 @@
 front.zip
+venv/
+*.pyc
+*.exe
+*.bat
+    
