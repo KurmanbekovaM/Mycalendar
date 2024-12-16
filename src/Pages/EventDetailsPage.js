@@ -7,7 +7,7 @@ function EventDetailsPage() {
   // Заглушка для получения данных события
   const event = {
     id,
-    title: "Sample Event",
+    title: "Event",
     description: "This is a detailed description of the event.",
     location: "Online",
     time: "2024-12-12 10:00",
