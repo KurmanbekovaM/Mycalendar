@@ -1,22 +1,22 @@
 from django.urls import path, include
-from rest_framework import viewsets
 from rest_framework.routers import DefaultRouter
-from rest_framework.permissions import IsAuthenticated
-from .models import Event
-from .serializers import EventSerializer
 from .views import EventViewSet, AvailabilityViewSet
 from .views_auth import RegisterUser, LoginUser
+
+# Создаем маршрутизатор для API
 router = DefaultRouter()
-router.register(r'events', EventViewSet)
-router.register(r'availabilities', AvailabilityViewSet)
+router.register(r'events', EventViewSet, basename="event")
+router.register(r'availabilities', AvailabilityViewSet, basename="availability")
 
+# Определяем URL-адреса
 urlpatterns = [
-    path('api/', include(router.urls)),
-    path('register/', RegisterUser.as_view(), name='register'),
-    path('login/', LoginUser.as_view(), name='login'),
-]
+    # API маршруты
+    path('api/', include(router.urls)),  # API для events и availabilities
 
-class EventViewSet(viewsets.ModelViewSet):
-    queryset = Event.objects.all()
-    serializer_class = EventSerializer
-    permission_classes = [IsAuthenticated]
+    # Маршруты для регистрации и логина
+    path('api/register/', RegisterUser.as_view(), name='api_register'), # Регистрация
+    path('api/login/', LoginUser.as_view(), name='login'),  # Логин
+
+    # Маршрут для отправки тестового email
+    # path('send-email/', send_test_email, name='send_test_email'),
+]
