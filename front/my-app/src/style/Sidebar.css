@@ -1,0 +1,39 @@
+/* Боковая панель */
+.MuiDrawer-paper {
+    width: 240px;
+    position: fixed; /* Фиксированное позиционирование */
+    top: 60px; /* Панель начинает ниже заголовка */
+    left: 0;
+    bottom: 0;
+    z-index: 900; /* Панель будет за заголовком */
+    background-color: #f4f7f6;
+    border-right: 2px solid #ddd;
+    padding-top: 20px;
+  }
+  
+  /* Стили для списка ссылок в боковой панели */
+  .MuiDrawer-paper .MuiList-root {
+    padding: 0;
+  }
+  
+  .MuiDrawer-paper .MuiListItem-root {
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .MuiDrawer-paper .MuiListItem-root:hover {
+    background-color: #e0e0e0;
+  }
+  
+  /* Стили для текста ссылок в боковой панели */
+  .MuiDrawer-paper .MuiListItemText-root {
+    color: #333;
+    font-size: 16px;
+  }
+  
+  .MuiDrawer-paper .MuiListItemText-root a {
+    text-decoration: none;
+    color: inherit;
+  }
+  

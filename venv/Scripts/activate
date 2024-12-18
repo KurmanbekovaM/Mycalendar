@@ -38,7 +38,11 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
+<<<<<<< HEAD
 VIRTUAL_ENV="C:\Users\savar\Downloads\webproject\webproject\mycalendar\venv"
+=======
+VIRTUAL_ENV="C:\Users\savar\Documents\RAMILYA\pro\Mycalendar\venv"
+>>>>>>> origin/main
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"
