@@ -30,20 +30,19 @@
 #
 # ]
 #
-from django.urls import path, include
-from rest_framework.routers import DefaultRouter
-from .views import EventViewSet, AvailabilityViewSet, EventParticipantViewSet
-from . import views
+
+
 from .views_auth import RegisterUser, LoginUser
 from rest_framework_simplejwt import views as jwt_views
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
-from .views import EventViewSet, AvailabilityViewSet, ProfileView
+from .views import EventViewSet,  ProfileView, EventParticipantViewSet
+#AvailabilityViewSet,
 
 # Создаем роутер и регистрируем viewsets
 router = DefaultRouter()
 router.register(r'events', EventViewSet)
-router.register(r'availabilities', AvailabilityViewSet)
+#router.register(r'availabilities', AvailabilityViewSet)
 router.register(r'eventparticipants', EventParticipantViewSet)
 
 urlpatterns = [
