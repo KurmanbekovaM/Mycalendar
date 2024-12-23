@@ -6,12 +6,12 @@
     background: #265985;
     color: white;
   }
-  
+
   .header h1 {
     margin: 0;
     font-size: 1.8em;
   }
-  
+
   .header nav ul {
     list-style: none;
     margin: 0;
@@ -19,11 +19,11 @@
     display: flex;
     gap: 20px;
   }
-  
+
   .header nav ul li {
     display: inline;
   }
-  
+
   .header nav ul li a {
     color: white;
     text-decoration: none;
@@ -31,28 +31,27 @@
     padding: 5px 10px;
     border-radius: 5px;
   }
-  
+
   .header nav ul li a:hover {
     background: rgb(238, 239, 240);
     color: #44494f;
     transition: 0.3s;
   }
-  
+
   nav a.active {
     font-weight: bold;
-    color: #007bff; 
+    color: #007bff;
   }
-  
+
   .header nav ul li a {
     display: flex;
     align-items: center;
     text-decoration: none;
   }
-  
+
   .header nav ul li a svg {
     margin-right: 8px;
-    font-size: 1.2em;  
+    font-size: 1.2em;
   }
 
 
-  
