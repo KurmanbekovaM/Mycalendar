@@ -115,3 +115,16 @@
   font-size: 0.9rem;
   text-align: center;
 }
+
+.error-message {
+  margin-top: 15px;
+  padding: 10px;
+  background-color: #f8d7da; /* Светло-красный фон */
+  color: #721c24; /* Темно-красный текст */
+  border: 1px solid #f5c6cb; /* Красная рамка */
+  border-radius: 8px;
+  font-size: 0.9rem;
+  text-align: center;
+  width: 100%; /* Растягиваем по ширине формы */
+  box-sizing: border-box; /* Учитываем padding */
+}

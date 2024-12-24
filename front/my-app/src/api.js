@@ -74,11 +74,59 @@
 
 // export default api;
 
-// api.js
+// // api.js
+// import axios from 'axios';
+
+// const api = axios.create({
+//   baseURL: 'http://127.0.0.1:8000/api/', // Убедитесь, что URL правильный
+// });
+
+// export default api;
+
+// import axios from 'axios';
+
+// // Создаем экземпляр Axios
+// const api = axios.create({
+//   baseURL: 'http://127.0.0.1:8000/api/',  // Базовый URL
+// });
+
+// // Добавляем токен в заголовки всех запросов
+// api.interceptors.request.use(
+//   (config) => {
+//     const token = localStorage.getItem('access_token');  // Получаем токен из localStorage
+//     if (token) {
+//       config.headers.Authorization = `Bearer ${token}`;  // Добавляем токен в заголовок
+//     }
+//     return config;
+//   },
+//   (error) => {
+//     return Promise.reject(error);
+//   }
+// );
+
+// export default api;
 import axios from 'axios';
 
+// Создаем экземпляр Axios
 const api = axios.create({
-  baseURL: 'http://127.0.0.1:8000/api/', // Убедитесь, что URL правильный
+  baseURL: 'http://127.0.0.1:8000/api/',  // Базовый URL
 });
 
-export default api;
+const loginUser = async (email, password) => {
+  try {
+    // Отправляем запрос на сервер для получения токена
+    const response = await axios.post('http://127.0.0.1:8000/api/token/', {
+      email,
+      password,
+    });
+
+    // После получения токена сохраняем его в localStorage
+    const token = response.data.access;  // Получаем токен из ответа
+    localStorage.setItem('access_token', token);  // Сохраняем в localStorage
+
+    console.log('Login successful, token saved:', token);
+  } catch (error) {
+    console.error('Login error:', error);
+  }
+};
+

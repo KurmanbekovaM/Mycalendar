@@ -40,20 +40,104 @@
 
 // export default Header;
 // Header.js
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { FaUserPlus } from 'react-icons/fa';
-import '../style/Header.css';
+// import React from 'react';
+// import { Link } from 'react-router-dom';
+// import { FaUserPlus } from 'react-icons/fa';
+// import '../style/Header.css';
 
-function Header({ onLogout, user }) {
+// function Header({ onLogout, user }) {
+//   return (
+//     <header className="header">
+//       <h1>Your App</h1>
+//       <nav>
+//         <ul>
+//           {!user && (
+//             <>
+//               <li>
+//                 <Link to="/login">Login</Link>
+//               </li>
+//               <li>
+//                 <Link to="/register">
+//                   <FaUserPlus /> Get Started
+//                 </Link>
+//               </li>
+//             </>
+//           )}
+
+//           {user && (
+//             <li>
+//               <Link to="/" onClick={onLogout}>
+//                 Logout
+//               </Link>
+//             </li>
+//           )}
+//         </ul>
+//       </nav>
+//     </header>
+//   );
+// }
+
+// export default Header;
+
+
+
+// import React, { useContext } from "react";
+// import { Link } from "react-router-dom";
+// import { FaUserPlus } from "react-icons/fa";
+// import { AuthContext } from "../Pages/AuthContext";
+// import "../style/Header.css";
+
+// function Header() {
+//   const { user, logout } = useContext(AuthContext);
+
+//   return (
+//     <header className="header">
+//       <h1>Your App</h1>
+//       <nav>
+//         <ul>
+//           {!user && (
+//             <>
+//               <li>
+//                 <Link to="/login">Login</Link>
+//               </li>
+//               <li>
+//                 <Link to="/register">
+//                   <FaUserPlus /> Get Started
+//                 </Link>
+//               </li>
+//             </>
+//           )}
+
+//           {user && (
+//             <li>
+//               <Link to="/" onClick={logout}>
+//                 Logout
+//               </Link>
+//             </li>
+//           )}
+//         </ul>
+//       </nav>
+//     </header>
+//   );
+// }
+
+// export default Header;
+
+
+import React, { useContext } from "react";
+import { Link } from "react-router-dom";
+import { FaUserPlus } from "react-icons/fa";
+import { AuthContext } from "../Pages/AuthContext";
+import "../style/Header.css";
+
+function Header() {
+  const { user, logout } = useContext(AuthContext);
+
   return (
     <header className="header">
       <h1>Your App</h1>
       <nav>
         <ul>
-          <li>
-            <Link to="/profile">Profile</Link>
-          </li>
           {!user && (
             <>
               <li>
@@ -66,10 +150,9 @@ function Header({ onLogout, user }) {
               </li>
             </>
           )}
-
           {user && (
             <li>
-              <Link to="/" onClick={onLogout}>
+              <Link to="/" onClick={logout}>
                 Logout
               </Link>
             </li>
