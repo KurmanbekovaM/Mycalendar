@@ -8,7 +8,11 @@ if defined _OLD_CODEPAGE (
     "%SystemRoot%\System32\chcp.com" 65001 > nul
 )
 
+<<<<<<< HEAD
+set VIRTUAL_ENV=C:\Users\savar\Downloads\webproject\webproject\mycalendar\venv
+=======
 set VIRTUAL_ENV=C:\Users\savar\Documents\RAMILYA\pro\Mycalendar\venv
+>>>>>>> origin/main
 
 if not defined PROMPT set PROMPT=$P$G
 
