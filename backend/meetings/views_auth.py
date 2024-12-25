@@ -144,7 +144,6 @@ class RegisterUser(APIView):
             if not username or not password:
                 return Response({"error": "Username and password are required"}, status=status.HTTP_400_BAD_REQUEST)
 
-            # Проверка на уникальность имени пользователя
             if User.objects.filter(username=username).exists():
                 return Response({"error": "Username already exists"}, status=status.HTTP_400_BAD_REQUEST)
 

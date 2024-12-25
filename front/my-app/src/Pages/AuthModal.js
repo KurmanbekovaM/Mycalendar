@@ -1,21 +1,17 @@
-// src/components/Header.js
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { FaSignInAlt } from "react-icons/fa"; // Иконка для входа
-import AuthModal from "./AuthModal"; // Импортируем модальное окно
-import "../style/Header.css"; // Путь к стилям Header
+import { FaSignInAlt } from "react-icons/fa"; 
+import AuthModal from "./AuthModal";
+import "../style/Header.css"; 
 
 function Header({ onLogout, user }) {
-  const [isModalOpen, setIsModalOpen] = useState(false); // Состояние модального окна
-  const [modalType, setModalType] = useState("login"); // Тип модального окна
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalType, setModalType] = useState("login");
 
-  // Функция для открытия модального окна
   const openModal = (type) => {
     setModalType(type);
     setIsModalOpen(true);
   };
-
-  // Функция для закрытия модального окна
   const closeModal = () => {
     setIsModalOpen(false);
   };

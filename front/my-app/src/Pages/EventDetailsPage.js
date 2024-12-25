@@ -2,9 +2,8 @@ import React from "react";
 import { useParams } from "react-router-dom";
 
 function EventDetailsPage() {
-  const { id } = useParams(); // Получаем id события из URL
+  const { id } = useParams();
 
-  // Заглушка для получения данных события
   const event = {
     id,
     title: "Event",

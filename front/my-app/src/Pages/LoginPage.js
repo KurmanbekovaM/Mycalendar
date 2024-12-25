@@ -346,7 +346,7 @@ const LoginPage = () => {
       });
 
       const { access } = response.data;
-      login({ username, token: access }); // Вызываем login из контекста
+      login({ username, token: access }); 
       navigate("/profile");
     } catch (err) {
       setError(err.response?.data?.detail || "Invalid credentials. Please try again.");

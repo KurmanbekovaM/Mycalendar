@@ -17,6 +17,16 @@ from .models import Event, EventParticipant
 from .serializers import EventSerializer, EventParticipantSerializer
 
 
+# class EventViewSet(viewsets.ModelViewSet):
+#     serializer_class = EventSerializer
+
+#     def get_queryset(self):
+#         user = self.request.user
+#         return Event.objects.filter(
+#             Q(creator=user) | Q(participants=user)
+#         )
+
+
 class EventViewSet(viewsets.ModelViewSet):
     serializer_class = EventSerializer
 
@@ -24,12 +34,20 @@ class EventViewSet(viewsets.ModelViewSet):
         user = self.request.user
         return Event.objects.filter(
             Q(creator=user) | Q(participants=user)
-        )
+        ).distinct()
 
-# class AvailabilityViewSet(viewsets.ModelViewSet):
-#     queryset = Availability.objects.all()
-#     serializer_class = AvailabilitySerializer
+    def perform_create(self, serializer):
+        serializer.save(creator=self.request.user)
+
+
 
 class EventParticipantViewSet(viewsets.ModelViewSet):
     queryset = EventParticipant.objects.all()
     serializer_class = EventParticipantSerializer
+
+
+
+
+# class AvailabilityViewSet(viewsets.ModelViewSet):
+#     queryset = Availability.objects.all()
+#     serializer_class = AvailabilitySerializer

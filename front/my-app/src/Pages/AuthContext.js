@@ -63,17 +63,16 @@ export const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
 
-  // Проверяем токен в localStorage при загрузке
   useEffect(() => {
     const token = localStorage.getItem("access_token");
     if (token) {
-      setUser({ username: "current_user" }); // Здесь вы можете заменить на запрос к API для проверки токена
+      setUser({ username: "current_user" }); 
     }
   }, []);
 
   const login = (userData) => {
     setUser(userData);
-    localStorage.setItem("access_token", userData.token); // Сохраняем токен
+    localStorage.setItem("access_token", userData.token); 
   };
 
   const logout = () => {

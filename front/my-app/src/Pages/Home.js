@@ -1,26 +1,25 @@
 
-import { Button } from '@mui/material'; // Пример использования Material UI
+import { Button } from '@mui/material';
 import React, { useState, useEffect } from 'react';
 import { Calendar, momentLocalizer } from 'react-big-calendar';
 import moment from 'moment';
-import { Link, useNavigate } from 'react-router-dom'; // Импортируем Link для перехода и useNavigate для навигации
+import { Link, useNavigate } from 'react-router-dom';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 
 const localizer = momentLocalizer(moment);
 
 function Home() {
   const [events, setEvents] = useState([]);
-  const [isAuthenticated, setIsAuthenticated] = useState(false);  // Состояние для проверки авторизации
-  const navigate = useNavigate();  // Для навигации на другие страницы
-
+  const [isAuthenticated, setIsAuthenticated] = useState(false);  
+  const navigate = useNavigate();  
   useEffect(() => {
-    // Проверяем, есть ли токен в localStorage
+ 
     const token = localStorage.getItem('access_token');
     if (token) {
-      setIsAuthenticated(true);  // Если токен есть, считаем, что пользователь авторизован
+      setIsAuthenticated(true);  
     }
 
-    // Пример событий для календаря
+
     setEvents([
       {
         title: 'My Event',
@@ -31,10 +30,10 @@ function Home() {
   }, []);
 
   const handleLogout = () => {
-    // Удаляем токен при выходе
+
     localStorage.removeItem('access_token');
     setIsAuthenticated(false);
-    navigate('/');  // Перенаправляем на главную страницу
+    navigate('/'); 
   };
 
   return (

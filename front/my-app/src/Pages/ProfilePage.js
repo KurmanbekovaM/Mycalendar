@@ -74,7 +74,7 @@ const ProfilePage = () => {
 
   useEffect(() => {
     const fetchProfileData = async () => {
-      const token = localStorage.getItem("access_token");  // Получаем токен из localStorage
+      const token = localStorage.getItem("access_token"); 
       if (!token) {
         setError("You need to be logged in.");
         return;
@@ -83,7 +83,7 @@ const ProfilePage = () => {
       try {
         const response = await axios.get("http://127.0.0.1:8000/api/profile/", {
           headers: {
-            Authorization: `Bearer ${token}`,  // Отправляем токен в заголовках запроса
+            Authorization: `Bearer ${token}`,  
           },
         });
         setProfileData(response.data);
